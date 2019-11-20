@@ -1,0 +1,101 @@
+<div class="userForm2 " >
+  
+    <div class="card-container1" >
+        <span style="padding: 0%;color:white">Balance Down:  </span><span style="color:green;margin: 1%;">0.00</span>
+        <span style="padding: 0%;color:white">Balance Up:</span> <span style="color:green;margin: 1%;">0.00</span>
+        <span style="padding: 0%;color:white">Net Exposure:</span> <span style="color:green;margin: 1%;">0.00</span>
+        <span style="padding: 0%;color:white">Available Credit:</span> <span style="color:white;margin: 1%;">0.00</span>  
+      </div>
+</div>
+<div class="userForm2 " style="padding-bottom: 50px;">
+    <form [formGroup]="userForm"  (ngSubmit)="onSubmit()">      
+        <mat-grid-list cols="4">
+            <mat-grid-tile rowspan="2" style="z-index: 999;">
+              <div class="userForm1 " style="">                 
+                  <label for="label" class="form-label userFormheadingLable">User Information</label>
+                  <hr/>
+                  <div class="form-group has-error" [ngClass]=""> <!-- First Name -->
+                    <label for="userName" class="userFormLable">Username</label>
+                  <br/>
+                    L9870405M - <input type="text"  class=" col-md-2" ngModel="{{userName1}}" id="userName1" name="userName1" formControlName="userName1" [value]="userName1" placeholder=""> - 
+                    <input type="text" formControlName="userName2" ngModel="{{userName2}}" value="{{userName2}}" class=" col-md-2" id="userName2" name="userName2" placeholder="">
+                    <p *ngIf="i" id="userName_error" class="help-block">Invalid User name.</p>
+                  </div>
+                
+                  <div class="form-group" [ngClass]=""> <!-- Last Name -->
+                    <label for="last_name" class="control-label userFormLable">Login Name</label>
+                    <input type="text" formControlName="loginName" class="form-control" id="loginName" name="loginName" placeholder="">
+                    <p *ngIf="" id="login_name_error" class="help-block">Invalid login name.</p>
+                  </div>
+    
+                  <div class="form-group" [ngClass]=""> <!-- Password -->
+                    <label for="password" class="control-label userFormLable">Password</label>
+                    <input type="password" formControlName="password"  class="form-control" id="password" name="password" placeholder="">
+                    <p *ngIf="" id="password_error" class="help-block">Invalid password.</p>
+                  </div>
+    
+                  <div class="form-group" [ngClass]=""> <!-- Password -->
+                    <label for="repeatPassword" class="control-label userFormLable">Repeat Password</label>
+                    <input type="repeatPassword" formControlName="repeatPassword" class="form-control" id="repeatPassword" name="repeatPassword" placeholder="">
+                    <p *ngIf="" id="repeatPassword_error" class="help-block">Invalid Repeat Password.</p>
+                  </div>
+                
+                  <div class="form-group" [ngClass]=""> <!-- Zip Code-->
+                    <label for="status" class="control-label userFormLable">Status</label>      
+                  </div>
+    
+                  <div class="form-group" [ngClass]=""> <!-- Zip Code-->
+                    <label >
+                      <input type="radio" formControlName="status"  id="status" name="status" checked value="1" placeholder="">
+                      <span class="radio_label  userFormLable">ACTIVE</span>
+                    </label>
+                    <label>
+                      <input type="radio"  class="" formControlName="status"  id="status" name="status" value="0" placeholder="">
+                      <span class="radio_label  userFormLable">INACTIVE</span>
+                    </label>                    
+                  </div>    
+              </div>	
+            </mat-grid-tile>  
+            <mat-grid-tile rowspan="1" style="z-index: 999;">
+              <div class="userForm1 ">
+                <label for="label" class="form-label userFormheadingLable">Credit</label>
+                <hr/>
+                <div class="form-group" [ngClass]=""> <!-- Email -->
+                  <label for="email" class="control-label  userFormLable">Credit Limit</label>
+                  <div class="form-group ">
+                    <input type="text"  formControlName="creditLimit"  class="form-control " id="creditLimit" name="creditLimit" placeholder=""><=0 >=0
+                  </div>
+                </div>
+                
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan="1" style="z-index: 999;"> 
+                <div class="userForm1">
+                    <label for="label" class="form-label userFormheadingLable">Position Taking</label>
+                    <hr/>
+                    <div class="form-group" [ngClass]="">
+                        <label for="label" class="form-label  userFormLable">Agent Position (%)</label>
+                        <input type="text"  class="form-control "  formControlName="agentPosition" id="agentPosition" name="agentPosition" placeholder=""><=0
+                    </div>                   
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan="1" style="z-index: 999;"></mat-grid-tile>
+      </mat-grid-list>
+      
+      <div class="userForm1 col-md-3" style="">
+          <label for="label" class="form-label userFormheadingLable">Notes </label>
+          <hr/>
+          <div class="form-group" [ngClass]="">
+            <textarea class="form-control" name="notes" id="notes" ormControlName="notes">            
+            </textarea>
+          </div>                
+      </div>
+       
+    <div class=" userForm1" style="background: transparent;">
+      <div class="form-group has-error left" style="float: right;background: transparent;"> <!-- Register Button -->
+        <button type="submit" class="btn btn-primary" style="margin-right:10px;color: green;background: transparent;border-color:transparent ;">Cancel</button>
+        <button type="submit" class="btn btn-primary"  style="background-color: #8e1e98;border-color: #66166d;">Create</button>
+      </div>
+    </div>
+    </form>
+  </div>

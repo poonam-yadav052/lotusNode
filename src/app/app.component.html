@@ -1,0 +1,53 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+<!-- Toolbar -->
+<ng2-slim-loading-bar color="blue"></ng2-slim-loading-bar>
+<!-- <div class="container-fluid"> -->
+<mat-toolbar color="">
+  <mat-toolbar-row>
+    <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="primary">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button> -->
+    <span>LOTUS</span>
+    <span style="width: 100%;text-align: right;">
+      <span style="padding: 1%;font-size: 14px">Help</span>
+      <span style="padding: 1%;font-size: 14px">Settings</span>
+      <span style="padding: 1%;font-size: 14px">Logout</span></span>
+  </mat-toolbar-row>
+</mat-toolbar>  
+<mat-sidenav-container class="example-container">
+  
+  <mat-sidenav #drawer mode="side" opened role="navigation">
+    <mat-nav-list>
+      <!-- <a mat-list-item routerLink='/index'>Index</a> -->
+      <a mat-list-item routerLink='/usersDisplay'>Agency Management<i class="glyphicon glyphicon-chevron-up"></i></a>
+      <a mat-list-item routerLink='/agency_management'>Risk Management</a>
+      <a mat-list-item routerLink='/agency_management'>Reports</a>
+      <a mat-list-item routerLink='/agency_management'>Account</a>      
+      <a mat-list-item routerLink='/agency_management'>Admin Users</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+<!-- </div> -->
+
+<div class="containers">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+

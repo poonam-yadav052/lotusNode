@@ -1,0 +1,431 @@
+1) get All Users
+	Method : GET
+	http://localhost:3000/matieres/getUsers
+	Params : 
+	Result :{
+    "messege": "Success",
+    "result": [
+        {
+            "ID": 1,
+            "userRole": 1,
+            "userName": "L9870405M01",
+            "loginName": "Test123",
+            "password": "Test123",
+            "notes": "This is test",
+            "status": 1,
+            "createdDate": "2019-11-17T21:22:29.000Z",
+            "lastLogin": "2019-11-17T21:22:29.000Z",
+            "roleName": "Admin",
+            "betSettingId": 1,
+            "cricket": "[{\"minBet\":50,\"maxBet\":50,\"maxMarket\":50}]",
+            "fancyMarkets": "[{\"minBet\":\"50\",\"maxBet\":\"50\",\"maxMarket\":\"50\"}]",
+            "exchRuns": "[{\"minBet\":\"50\",\"maxBet\":\"50\",\"maxMarket\":\"50\"}]",
+            "football": "[{\"minBet\":\"50\",\"maxBet\":\"50\",\"maxMarket\":\"50\"}]",
+            "Tennis": "[{\"minBet\":\"50\",\"maxBet\":\"50\",\"maxMarket\":\"50\"}]",
+            "horseRacing": "[{\"minBet\":\"50\",\"maxBet\":\"50\",\"maxMarket\":\"50\"}]",
+            "greyhoundRacing": "[{\"minBet\":\"50\",\"maxBet\":\"50\",\"maxMarket\":\"50\"}]",
+            "casino": "[{\"minBet\":\"50\",\"maxBet\":\"50\",\"maxMarket\":\"50\"}]",
+            "positionTakingId": 1,
+            "posSport": 10,
+            "posCricket": 10,
+            "posFootball": 10,
+            "posTennis": 10,
+            "posHorseRacing": 10,
+            "posGreyhoundRacing": 10,
+            "posCasino": 10,
+            "creditLimit": 0,
+            "paymentThreshould": 10,
+            "creditlimitId": 49
+        },
+        {
+            "ID": 2,
+            "userRole": 2,
+            "userName": "L9870405M02",
+            "loginName": "Test3",
+            "password": "Test123",
+            "notes": "This is test",
+            "status": 1,
+            "createdDate": "2019-11-17T21:26:11.000Z",
+            "lastLogin": "2019-11-17T21:26:11.000Z",
+            "roleName": "Super Admin",
+            "betSettingId": null,
+            "cricket": null,
+            "fancyMarkets": null,
+            "exchRuns": null,
+            "football": null,
+            "Tennis": null,
+            "horseRacing": null,
+            "greyhoundRacing": null,
+            "casino": null,
+            "positionTakingId": 2,
+            "posSport": 10,
+            "posCricket": 10,
+            "posFootball": 10,
+            "posTennis": 10,
+            "posHorseRacing": 10,
+            "posGreyhoundRacing": 10,
+            "posCasino": 10,
+            "creditLimit": 40,
+            "paymentThreshould": 10,
+            "creditlimitId": 65
+        }
+    ]
+}
+	
+	
+2) get Max Username 
+	Method : GET
+	http://localhost:3000/matieres/getUserMax
+	Params : 
+	result: {
+			"messege": "Success",
+			"result": [
+				{
+					"userName": "L9870405M-08"
+				}
+			]
+		}
+
+3)Create User	
+	Method : POST
+	http://localhost:3000/matieres/saveUser
+	Headers : "Content-Type : application/json"
+	Params : {
+			"userName1":"0",
+			"userName2":"9",
+			"loginName":"Test09",
+			"password":"Test123",
+			"notes":"Notes",
+			"status":1,
+			"agentPosition":10,
+			"creditLimit":"10",
+			"addedBy" :"2",
+			"added_by_roleId":"2",
+			"userRole":"2"
+			}
+	result : {"messege":"Success","result":{"fieldCount":0,"affectedRows":1,"insertId":28,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}}		
+
+4)Update User	
+	Method : POST
+	http://localhost:3000/matieres/updateUser
+	Headers : "Content-Type : application/json"
+	Params : {
+				"userId":36,
+				"notes":"This is test",
+				"status":"1",
+				"addedBy" :"2",
+				"added_by_roleId":"2",
+				"password":"Test123",
+				"cricket":[{
+						"minBet":50,
+						"maxBet":50,
+						"maxMarket":50
+					}],
+				"fancyMarkets":[{
+					"minBet":"50",
+					"maxBet":"50",
+					"maxMarket":"50"
+					}],
+				"exchRuns":[{
+					"minBet":"50",
+					"maxBet":"50",
+					"maxMarket":"50"
+					}],
+				"football":[{
+					"minBet":"50",
+					"maxBet":"50",
+					"maxMarket":"50"
+					}],
+				"Tennis":[{
+					"minBet":"50",
+					"maxBet":"50",
+					"maxMarket":"50"
+					}],
+				"horseRacing":[{
+					"minBet":"50",
+					"maxBet":"50",
+					"maxMarket":"50"
+					}]	,
+				"greyhoundRacing":[{
+					"minBet":"50",
+					"maxBet":"50",
+					"maxMarket":"50"
+					}],
+				"casino":[{
+					"minBet":"50",
+					"maxBet":"50",
+					"maxMarket":"50"
+					}],
+				
+				"creditLimit":10,
+				"paymentThreshould":"10",
+				"posSport":"10",
+				"posCricket":"10",
+				"posFootball":"10",
+				"posTennis":"10",
+				"posHorseRacing":"10",
+				"posGreyhoundRacing":"10",
+				"posCasino":"10"
+			}
+	result : {
+			"messege": "Success",
+			"result": {
+				"fieldCount": 0,
+				"affectedRows": 1,
+				"insertId": 0,
+				"serverStatus": 2,
+				"warningCount": 0,
+				"message": "(Rows matched: 1  Changed: 1  Warnings: 0",
+				"protocol41": true,
+				"changedRows": 1
+				}
+			}		
+			
+5)  Get User 
+	Method : GET
+	http://localhost:3000/matieres/getUser?userId=1
+	Params  : userId
+	
+6) Get All/One User Roles
+	Method : GET
+	http://localhost:3000/matieres/getUserRoles?roleId=1
+	Params  : roleId
+	
+	Note : If we want all roles then send roleId = 0
+
+7) Get User Permission
+	Method : GET
+	http://localhost:3000/matieres/getUserPermission?roleId=1
+	Params  : roleId	
+	
+	Note : If we want all role permission then send roleId = 0
+
+8) Get User Credit Limit
+	Method : GET
+	http://localhost:3000/matieres/getCeditLimit?userId=2
+	Params  : userId
+	
+	Note : If we want all users credit limit then send userId = 0
+	
+
+9) Login
+	Method : POST
+	http://localhost:3000/matieres/login	
+	Params  : {			
+				"userName":"Test123",
+				"password":"Test123"
+			}
+	result : {
+				"messege": "Success",
+				"result": [
+					{
+						"ID": 1,
+						"userRole": 1,
+						"userName": "L9870405M01",
+						"loginName": "Test123",
+						"password": "Test123",
+						"notes": "This is test",
+						"status": 1,
+						"createdDate": "2019-11-17T21:22:29.000Z",
+						"lastLogin": "2019-11-17T21:22:29.000Z",
+						"createdBy": 0
+					}
+				]
+			}		
+	result : {
+				"messege": "Success",
+				"result": "Invalid login details!"
+			}	
+	result : {
+				"messege": "Success",
+				"result": "User Name and Password can not be empty!"
+			 }		
+
+10) Get Position Taking				
+	Method : GET
+	http://localhost:3000/matieres/getPositionTakiing?userId=1	
+	Params  : userId
+	result :{
+				"messege": "Success",
+				"result": [
+					{
+						"ID": 37,
+						"userRole": 2,
+						"userName": "L9870405M-10",
+						"loginName": "Test10",
+						"password": "Test123",
+						"notes": "Notes",
+						"status": 1,
+						"createdDate": "2019-11-20T07:24:34.000Z",
+						"lastLogin": "2019-11-20T07:24:34.000Z",
+						"createdBy": 1,
+						"sport": 10,
+						"cricket": 10,
+						"football": 10,
+						"tennis": 10,
+						"horseRacing": 10,
+						"greyhoundRacing": 10,
+						"casino": 10
+					},
+					{
+						"ID": 38,
+						"userRole": 5,
+						"userName": "L9870405M-11",
+						"loginName": "Test11",
+						"password": "Test123",
+						"notes": "Notes",
+						"status": 1,
+						"createdDate": "2019-11-20T07:26:08.000Z",
+						"lastLogin": "2019-11-20T07:26:08.000Z",
+						"createdBy": 1,
+						"sport": 10,
+						"cricket": 10,
+						"football": 10,
+						"tennis": 10,
+						"horseRacing": 10,
+						"greyhoundRacing": 10,
+						"casino": 10
+					}
+				]
+			}
+
+11) Update multiple users Position Taking				
+	Method : POST
+	http://localhost:3000/matieres/updatePositionTakiing	
+	Params  : 	{
+					"sport":"50",
+					"cricket":"50",
+					"football":"50",
+					"tennis":"50",
+					"horseRacing":"50",
+					"greyhoundRacing":"50",
+					"casino":"50",
+					"userIds":"38,39"
+				}
+	result :{
+				"messege": "Success",
+				"result": {
+					"creditLimit": 10,
+					"paymentThreshould": 0,
+					"userId": 36,
+					"userName": "L9870405M-09",
+					"loginName": "Test09",
+					"password": "Test123",
+					"notes": "This is test",
+					"status": 1,
+					"createdDate": "2019-11-20T04:53:35.000Z"
+				}
+			}	
+			
+12) Add multiple stake for user				
+	Method : POST
+	http://localhost:3000/matieres/addStakes	
+	Params  : {
+				"stake":"10,20,500",
+				"userId":"48",
+				"addedBy":"48"
+			}
+	result : {
+				"messege": "Success",
+				"result": {
+					"fieldCount": 0,
+					"affectedRows": 1,
+					"insertId": 5,
+					"serverStatus": 2,
+					"warningCount": 0,
+					"message": "",
+					"protocol41": true,
+					"changedRows": 0
+				}
+			}		
+
+13) Get user stake				
+	Method : GET
+	http://localhost:3000/matieres/getStakes?userId=48	
+	Params : userId
+	result : {
+				"messege": "Success",
+				"result": [
+					{
+						"ID": 3,
+						"userId": 48,
+						"stake": 20,
+						"createdDate": "2019-11-20T12:49:03.000Z",
+						"createdBy": 48
+					},
+					{
+						"ID": 4,
+						"userId": 48,
+						"stake": 10,
+						"createdDate": "2019-11-20T12:49:03.000Z",
+						"createdBy": 48
+					},
+					{
+						"ID": 5,
+						"userId": 48,
+						"stake": 500,
+						"createdDate": "2019-11-20T12:49:03.000Z",
+						"createdBy": 48
+					}
+				]
+			}	
+
+14) Add bet slip 				
+	Method : POST
+	http://localhost:3000/matieres/addBetSlip	
+	Params : {
+				"userId":"1",
+				"odds":"1.56",
+				"stakeId":"1",
+				"liability":"16.5",
+				"event":"back",
+				"marketId":"1.5685588",
+				"betConfirm":"1",
+				"createdBy":"1"
+			}
+	result : {
+				"messege": "Success",
+				"result": {
+					"fieldCount": 0,
+					"affectedRows": 1,
+					"insertId": 2,
+					"serverStatus": 2,
+					"warningCount": 1,
+					"message": "",
+					"protocol41": true,
+					"changedRows": 0
+				}
+			}			
+			
+15) Get user bet slip				
+	Method : GET
+	http://localhost:3000/matieres/getBetSlip?userId=1	
+	Params : userId
+	result :{
+				"messege": "Success",
+				"result": [
+					{
+						"odds": 1.56,
+						"stakeId": 2,
+						"liability": 0,
+						"event": "back",
+						"marketId": "1.5685588",
+						"userId": 1,
+						"betConfirm": 0,
+						"createdBy": 1,
+						"stake": 10
+					},
+					{
+						"odds": 1.5284,
+						"stakeId": 1,
+						"liability": 16.5,
+						"event": "back",
+						"marketId": "1.5685588",
+						"userId": 1,
+						"betConfirm": 1,
+						"createdBy": 1,
+						"stake": 50
+					}
+				]
+			}		
+			

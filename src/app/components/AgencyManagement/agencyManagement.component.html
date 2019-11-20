@@ -1,0 +1,37 @@
+<div class="example-container">
+<mat-card>
+    <div class="card-container1" >
+        <span style="padding: 0%;font-weight: bold;color:white">Balance Down:  </span><span style="color:green;margin: 1%;">0.00</span>
+        <span style="padding: 0%;font-weight: bold;color:white">Balance Up:</span> <span style="color:green;margin: 1%;">0.00</span>
+        <span style="padding: 0%;font-weight: bold;color:white">Net Exposure:</span> <span style="color:green;margin: 1%;">0.00</span>
+        <span style="padding: 0%;font-weight: bold;color:white">Available Credit:</span> <span style="color:green;margin: 1%;">0.00</span>  
+      </div>    
+</mat-card> 
+<mat-card style="height: 100%;">
+    <div class="card-container1">
+      <label style="color: white !important;font-size:x-large">Member Listing</label>
+      <label class="member_search">Search <input class="" matInput placeholder="Search" required></label>
+       
+      <table class="table table-border">
+        <thead>
+          <th>Runners</th>
+          <th></th>
+          <th></th>
+          <th>Back</th>
+          <th>lay</th>
+          <th></th>
+          <th></th>
+        </thead>
+          <tr *ngFor="let runner of dataSource">
+            <td>{{runner.id}}</td> 
+            <td *ngFor="let back of runner.back"> {{ back.price }}<br/>{{ back.size }} </td>
+            <td *ngFor="let lay of runner.lay"> {{ lay.price }} <br/>{{ lay.size }} </td>
+          </tr>      
+        </table>
+    
+    <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+  </div>
+</mat-card>   

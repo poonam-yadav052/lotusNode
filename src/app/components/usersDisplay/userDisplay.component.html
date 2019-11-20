@@ -1,0 +1,244 @@
+<div class="userForm2 " style="">
+  
+    <div class="card-container1" >
+        <span style="padding: 0%;color:white">Balance Down:  </span><span style="color:green;margin: 1%;">0.00</span>
+        <span style="padding: 0%;color:white">Balance Up:</span> <span style="color:green;margin: 1%;">0.00</span>
+        <span style="padding: 0%;color:white">Net Exposure:</span> <span style="color:green;margin: 1%;">0.00</span>
+        <span style="padding: 0%;color:white">Available Credit:</span> <span style="color:white;margin: 1%;">0.00</span>  
+      </div>
+</div>
+<div class="userForm2 " style="padding-bottom: 50px;">
+    <mat-grid-list cols="3">
+        <mat-grid-tile>
+          <label style="color: white !important;font-size:x-large">Member Listing</label>
+       </mat-grid-tile>
+       <mat-grid-tile >          
+         <label class="member_search">Search <input class="" matInput placeholder="Search" required></label></mat-grid-tile>
+       <mat-grid-tile >
+        <a href="#/create" class="member_search " style="background:#8e1e98;border-radius: 0px;color:white" mat-button >New Member</a>  
+      </mat-grid-tile>
+    </mat-grid-list>  
+    <hr/>
+       <table>
+         <thead>
+           <tr>
+             <th>Login Name</th>
+             <th>ID</th>
+             <th>Downline</th>
+             <th>Betting Status</th>
+             <th>Status</th>
+             <th>Details</th>
+             <th>Net Exposure</th>
+             <th>Take</th>
+             <th>Give</th>
+             <th>Credit Limit</th>
+             <th>PT (%) C/F/T/H/G/X</th>
+             <th>Created</th>
+             <th>Last Login</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr *ngFor="let user of dataSource">
+             <td><button class="userTableBtn" (click)="get_model(user)">{{user.loginName}}</button></td>
+             <td>{{user.userName}}</td>
+             <td>--</td>
+             <td></td>
+             <td >ACTIVE</td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td>0/0/0/0/0/0</td>
+             <td>{{user.createdDate | date: 'dd/MM/yyyy H:mm:ss'}}</td>
+             <td>{{user.lastLogin | date: 'dd/MM/yyyy H:mm:ss'}}</td>
+           </tr>
+         </tbody>
+       </table> 
+  </div>
+
+  <ngx-smart-modal #myBootstrapModal identifier="myModal" [closable]="false" customClass="modal-content no-padding">
+  <div class="modal-body">
+      <form [formGroup]="userForm"  (ngSubmit)="onSubmit()">
+        <input type="hidden" class="form-control" formControlName="ID" id="ID" name="ID" [value]="user.ID"/>
+          <div class="userForm1 "  style="background: #26183e;">
+              <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->  
+              <label for="label" class="form-label userFormLable">Information</label>
+              <div class="form-group has-error" [ngClass]=""> <!-- First Name -->
+                <label for="userName" class="form-label">Username</label><br/>
+                <label for="userName" class="form-label">{{user.userName}}</label>
+              </div>
+            
+              <div class="form-group" [ngClass]=""> <!-- Last Name -->
+                <label for="last_name" class="control-label">Login Name</label>
+                <p  id="login_name_error" class="help-block">{{user.loginName}}</p>
+              </div>
+
+              <div class="form-group" [ngClass]=""> <!-- Password -->
+                <label for="password" class="control-label">Password</label>
+                <input type="password" formControlName="password" class="form-control" id="password" name="password" placeholder="*****">
+                <p *ngIf="" id="password_error" class="help-block">Invalid password.</p>
+              </div>
+
+              <div class="form-group" [ngClass]=""> <!-- Password -->
+                <label for="repeatPassword" class="control-label">Repeat Password</label>
+                <input type="repeatPassword" formControlName="repeatPassword" class="form-control" id="repeatPassword" name="repeatPassword" placeholder="*****">
+                <p *ngIf="" id="repeatPassword_error" class="help-block">Invalid Repeat Password.</p>
+              </div>
+            
+              <div class="form-group" [ngClass]=""> <!-- Zip Code-->
+                <label for="status" class="control-label">Status</label>      
+              </div>
+
+              <div class="form-group" [ngClass]=""> <!-- Zip Code-->
+                
+                <label>
+                  <input type="radio" class=""  formControlName="status" [value]="0" [(ngModel)]="activeStatus" checked id="status0" name="status" >
+                  <span class="radio_label">ACTIVE</span>
+                </label>
+                <label>
+                  <input type="radio"  class="" id="status1" formControlName="status" [value]="1" name="status" [(ngModel)]="inactiveStatus">
+                  <span class="radio_label">INACTIVE</span>
+                </label>
+                <label>
+                  <input type="radio"  class="" id="status2" formControlName="status" [value]="2" name="status" [(ngModel)]="suspendedStatus">
+                  <span class="radio_label">SUSPENDED</span>
+                </label>
+                <label>
+                  <input type="radio"  class="" id="status3" name="status" [value]="3" formControlName="status" [(ngModel)]="closeStatus">
+                  <span class="radio_label">CLOSE</span>
+                </label>
+              </div>    
+          </div>
+          <div class="userForm1 "  style="background: #26183e;">
+              <label for="label" class="form-label userFormLable">Credit</label>
+              <div class="form-group" [ngClass]=""> <!-- Email -->
+                <label for="email" class="col-md-5">Credit Limit</label>
+                <div class="col-md-3 ">
+                  <input type="text" class="form-control" formControlName="creditLimit" id="creditLimit" name="creditLimit" placeholder="">
+                </div>
+                <label for="email" class="col-md-5">Payment Threshould</label>
+                <div class="col-md-3 ">
+                  <input type="text" class="form-control" formControlName="payemtThreshould" id="payemtThreshould" name="payemtThreshould" placeholder="">                  
+                  </div>
+              </div>
+              <div class="form-group" [ngClass]=""> <!-- Email -->                
+              </div>
+          </div>
+          <div class="userForm1"  style="">
+                    <label for="label" class="form-label userFormLable">Bet Settings</label>
+                    <div class="form-group" [ngClass]="">
+                        <input type="checkbox"  class="" formControlName="betSettingChk" id="betSettingChk" name="betSettingChk">Same for all sports
+                    </div>
+                    <input type="hidden" [(ngModel)]="dataSource1[0].betSettingId" class="" formControlName="betSettingId" id="betSettingId" name="betSettingId" [value]="dataSource1[0].betSettingId">
+                    <div class="form-group" [ngClass]=""> <!-- Email -->
+                      <table class="betTable">
+                        <thead>
+                          <th></th>
+                          <th>Max Bet</th>
+                          <th>Min Bet</th>
+                          <th>Max Market</th>
+                        </thead>                        
+                        <tbody>
+                          <tr>
+                            <td>Cricket</td>
+                            <td> <input type="text"  formControlName="cricketMinBet" class="" id="cricketMinBet" name="cricketMinBet" [(ngModel)]="dataSource1[0].cricketMinBet" [value]="dataSource1[0].cricketMinBet"></td>
+                            <td> <input type="text" formControlName="cricketMaxBet" class="" id="cricketMaxBet" name="cricketMaxBet" placeholder="" readonly tabindex="-1" ></td>
+                            <td> <input type="text" formControlName="cricketMaxMarket" class="" id="cricketMaxMarket" name="cricketMaxMarket" placeholder="" readonly tabindex="-1"></td>
+                          </tr>
+                          <tr>
+                              <td>Football</td>
+                              <td> <input type="text" [value]="dataSource1[0].footballMinBet" formControlName="footballMinBet" class="" id="footballMinBet" name="footballMinBet" placeholder=""></td>
+                              <td> <input type="text" formControlName="footballMaxBet" class="" id="footballMaxBet" name="footballMaxBet" placeholder="" readonly tabindex="-1"></td>
+                              <td> <input type="text" formControlName="footballMarket" class="" id="footballMarket" name="footballMarket" placeholder="" readonly tabindex="-1"></td>
+                          </tr>
+                          <tr>
+                              <td>Tennis</td>
+                              <td> <input type="text" [value]="dataSource1[0].tennisMinBet" formControlName="tennisMinBet" class="" id="tennisMinBet" name="tennisMinBet" placeholder=""></td>
+                              <td> <input type="text" formControlName="tennisMaxBet" class="" id="tennisMaxBet" name="tennisMaxBet" placeholder="" readonly tabindex="-1"></td>
+                              <td> <input type="text" formControlName="tennisMarket" class="" id="tennisMarket" name="tennisMarket" placeholder="" readonly tabindex="-1"></td>
+                          </tr>
+                          <tr>
+                              <td>Horse Racing </td>
+                              <td> <input type="text" [value]="dataSource1[0].horseRacingMinBet" formControlName="horseRacingMinBet" class="" id="horseRacingMinBet" name="horseRacingMinBet" placeholder=""></td>
+                              <td> <input type="text" formControlName="horseRacingMaxBet" class="" id="horseRacingMaxBet" name="horseRacingMaxBet" placeholder="" readonly tabindex="-1"></td>
+                              <td> <input type="text" formControlName="horseRacingMarket" class="" id="horseRacingMarket" name="horseRacingMarket" placeholder="" readonly tabindex="-1"></td>
+                          </tr>
+                          <tr>
+                              <td>Greyhound Racing</td>
+                              <td> <input type="text" [value]="dataSource1[0].greyhoundRacingMinbet" formControlName="greyhoundRacingMinbet" class="" id="greyhoundRacingMinbet" name="greyhoundRacingMinbet" placeholder=""></td>
+                              <td> <input type="text" formControlName="greyhoundRacingMaxbet" class="" id="greyhoundRacingMaxbet" name="greyhoundRacingMaxbet" placeholder="" readonly tabindex="-1"></td>
+                              <td> <input type="text" formControlName="greyhoundRacingMarket" class="" id="greyhoundRacingMarket	" name="greyhoundRacingMarket	" placeholder="" readonly tabindex="-1"></td>
+                          </tr>  
+                          <tr>
+                              <td>Casino</td>
+                              <td> <input type="text" [value]="dataSource1[0].casinoMinbet" [value]="dataSource1[0].casinoMinbet" formControlName="casinoMinbet" class="" id="casinoMinbet" name="casinoMinbet" placeholder=""></td>
+                              <td> <input type="text" formControlName="casinoMaxbet" class="" id="casinoMaxbet" name="casinoMaxbet" placeholder="" readonly tabindex="-1"></td>
+                              <td> <input type="text" formControlName="casinoMarket" class="" id="casinoMarket" name="casinoMarket" placeholder="" readonly tabindex="-1"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+          </div>      	
+              
+          <div class="userForm1"  style="background: #26183e;">
+              <label for="label" class="form-label userFormLable">Position Taking</label>
+              <div class="form-group" [ngClass]="">
+                  <input type="checkbox" formControlName="positnTakingChk" class="positnTakingChk" id="" name="positnTakingChk">Same for all sports
+              </div>
+              <div class="form-group" [ngClass]=""> <!-- Email -->
+                <table class="betTable">
+                  <thead>
+                    <th>Sport</th>
+                    <th>Agent Position (%)</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Cricket</td>
+                      <td> <input type="text" formControlName="postnCricket" class="" id="postnCricket" name="postnCricket" placeholder=""><= 0</td>
+                    </tr>
+                    <tr>
+                        <td>Football</td>
+                        <td> <input type="text" formControlName="postnFootball" class="" id="postnFootball" name="postnFootball" placeholder=""><= 0</td>
+                    </tr>
+                    <tr>
+                        <td>Tennis</td>
+                        <td> <input type="text" formControlName="postnTennis" class="" id="postnTennis" name="postnTennis" placeholder=""><= 0</td>
+                    </tr>
+                    <tr>
+                        <td>Horse Racing </td>
+                        <td> <input type="text" formControlName="postnHorseRacing" class="" id="postnHorseRacing" name="postnHorseRacing" placeholder=""><= 0</td>
+                    </tr>
+                    <tr>
+                        <td>Greyhound Racing</td>
+                        <td> <input type="text" formControlName="postnGreyndRacing" class="" id="postnGreyndRacing" name="postnGreyndRacing" placeholder=""><= 0</td>
+                    </tr>  
+                    <tr>
+                        <td>Casino</td>
+                        <td> <input type="text" formControlName="postnCasino" class="" id="postnCasino" name="postnCasino" placeholder=""><= 0</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+          
+          <div class="userForm1"  style="background: #26183e;">
+              <label for="label" class="form-label userFormLable">Notes</label>
+              <div class="form-group" [ngClass]="">
+                 <textarea class="form-control" formControlName="notes" name="notes" id="notes">
+          
+                 </textarea>
+              </div>
+              
+          </div>
+          
+          <div class="userFormButton">
+            <div class="form-group has-error left" style="float: right;"> <!-- Register Button -->
+              <button type="submit" class="btn btn-primary" style="margin-right:10px;background: transparent;border: 0;color: green;">Cancel</button>
+              <button type="submit" class="btn btn-primary"  style="background: green;border: green;border-radius: 0;">Save</button>
+            </div>
+          </div>
+      </form>
+  </div>
+  
+</ngx-smart-modal>

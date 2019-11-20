@@ -1,0 +1,59 @@
+<div class="userForm2 " style="">
+  
+    <div class="card-container1" >
+        <span style="padding: 0%;color:white">Balance Down:  </span><span style="color:green;margin: 1%;">0.00</span>
+        <span style="padding: 0%;color:white">Balance Up:</span> <span style="color:green;margin: 1%;">0.00</span>
+        <span style="padding: 0%;color:white">Net Exposure:</span> <span style="color:green;margin: 1%;">0.00</span>
+        <span style="padding: 0%;color:white">Available Credit:</span> <span style="color:white;margin: 1%;">0.00</span>  
+      </div>
+</div>
+<div class="userForm2 " style="padding-bottom: 50px;">
+    <mat-grid-list cols="3">
+        <mat-grid-tile>
+          <label style="color: white !important;font-size:x-large">Member Listing</label>
+       </mat-grid-tile>
+       <mat-grid-tile >
+          <button (click)="ngxSmartModalService.getModal('myModal').open()">Open myModal</button>
+         <label class="member_search">Search <input class="" matInput placeholder="Search" required></label></mat-grid-tile>
+       <mat-grid-tile >
+        <a href="#/create" class="member_search " style="background:#8e1e98;border-radius: 0px;color:white" mat-button >New Member</a>  
+      </mat-grid-tile>
+    </mat-grid-list>  
+    <hr/>
+       <table>
+         <thead>
+           <tr>
+             <th>Login Name</th>
+             <th>ID</th>
+             <th>Downline</th>
+             <th>Betting Status</th>
+             <th>Status</th>
+             <th>Details</th>
+             <th>Net Exposure</th>
+             <th>Take</th>
+             <th>Give</th>
+             <th>Credit Limit</th>
+             <th>PT (%) C/F/T/H/G/X</th>
+             <th>Created</th>
+             <th>Last Login</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr *ngFor="let user of dataSource">
+             <td>{{user.loginName}}</td>
+             <td>{{user.userName}}</td>
+             <td>--</td>
+             <td></td>
+             <td>{{user.status}}</td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td>0/0/0/0/0/0</td>
+             <td>{{user.createdDate}}</td>
+             <td>{{user.lastLogin}}</td>
+           </tr>
+         </tbody>
+       </table> 
+  </div>

@@ -1,0 +1,58 @@
+.userForm1{
+    padding: 15px;
+    /* box-shadow: 0 .5rem .5rem rgba(242, 239, 239, 0.15) !important; */
+    /* margin: 10px; */
+    background: rgba(0, 0, 0, 0.4);
+    /* height: 100%; */
+    margin-right: 20px;
+}
+.userForm2{
+    padding: 20px;
+    /* box-shadow: 0 .5rem .5rem rgba(242, 239, 239, 0.15) !important; */
+    margin: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    /* height: 100%; */
+}
+.userFormButton{
+    padding: 20px;
+    /* box-shadow: 0 .5rem .5rem rgba(242, 239, 239, 0.15) !important; */
+    margin: 10px;
+    /* background: rgba(0, 0, 0, 0.4); */
+    /* height: 100%; */
+    float: right;
+}
+
+.userFormheadingLable{
+    font-size: 18px;
+}
+.userFormLable{
+    font-size: 14px;
+}
+
+.radio_label{
+    font-size: large;
+    padding-left: 10px;
+    padding-right: 15px;
+}
+td,th {
+
+    padding: 10px;
+
+}
+#notes-mat{
+    /* margin-top: 13px; */
+}
+hr {
+    border-top: 1px solid#fff;
+    margin: 0;
+}
+.mat-grid-tile .mat-figure {
+    display: block;
+}
+
+.member_search{
+    float: right;
+  }
+  .mat-grid-list{
+    padding-bottom:50px !important ;
+  }

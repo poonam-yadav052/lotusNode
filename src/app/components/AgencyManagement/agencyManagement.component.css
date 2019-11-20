@@ -1,0 +1,26 @@
+mat-grid-tile {
+    /* background: white; */
+    width: 100%;
+  }
+  table {
+    width: 100%;
+  }
+  mat-card {
+    padding: 2%;
+    /* background-color:#ffffff; */
+    margin-bottom: 10px;
+  }
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .member_search{
+    float: right;
+  }
+
+  th {
+    color: #ffffff;
+}
+td {
+  color: #ffffff;
+}
