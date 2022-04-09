@@ -28,7 +28,7 @@
     "express-list-endpoints": "^4.0.1",
     "glyphicons": "^0.2.0",
     "md5": "^2.2.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mysql": "^2.17.1",
     "ng2-slim-loading-bar": "^4.0.0",
     "ngx-smart-modal": "^7.2.1",
